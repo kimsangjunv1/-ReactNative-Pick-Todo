@@ -8,19 +8,19 @@ import {
 } from "react-native";
 
 const { width, height } = Dimensions.get("window");
-const [state, setState] = useState([]);
+// const [state, setState] = useState([]);
 
-const _toggleComplete = () => {
-  setState((prevState) => {
-    return {
-      isCompleted: !prevState.isCompleted,
-    };
-  });
-};
+// const _toggleComplete = () => {
+//   setState((prevState) => {
+//     return {
+//       isCompleted: !prevState.isCompleted,
+//     };
+//   });
+// };
 const ToDo = () => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={_toggleComplete}>
+      <TouchableOpacity>
         <View style={styles.circle} />
       </TouchableOpacity>
       <Text>Hello Im a To Do</Text>
