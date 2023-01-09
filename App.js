@@ -8,7 +8,10 @@ import {
   TextInput,
   Dimensions,
   Platform,
+  ScrollView,
 } from "react-native";
+
+import ToDo from "./ToDo";
 
 // 현재 페이지의 높이 넓이를 가져옴
 const { height, width } = Dimensions.get("window");
@@ -17,7 +20,7 @@ const state = {
   newToDo: "",
 };
 export default function App() {
-  const [goValue, setGoValue] = useState(1);
+  const [goValue, setGoValue] = useState([]);
   // const { newToDo } = this.state;
   console.log(goValue);
   return (
@@ -33,7 +36,12 @@ export default function App() {
           onChange={(event) => setGoValue(event.target.value)}
           placeholderTextColor={"#999"}
           returnKeyType={"done"}
+          // 자동수정 막기
+          autoCorrect={false}
         />
+        <ScrollView contentContainerStyle={styles.toDos}>
+          <ToDo />
+        </ScrollView>
       </View>
     </View>
   );
@@ -88,5 +96,8 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ededed",
     borderBottomWidth: 1,
     fontSize: 25,
+  },
+  toDos: {
+    alignItems: "center",
   },
 });
